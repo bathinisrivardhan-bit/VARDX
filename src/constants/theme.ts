@@ -7,34 +7,47 @@ import '@/global.css';
 
 import { Platform } from 'react-native';
 
+
+export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
+
 export const Colors = {
   light: {
     text: '#000000',
+    textPrimary: '#000000',
     background: '#ffffff',
     backgroundElement: '#F0F0F3',
     backgroundSelected: '#E0E1E6',
     textSecondary: '#60646C',
+    surface: '#FFFFFF',
+    surfaceSecondary: '#F4F4F5',
+    border: '#E4E4E7',
+    accent: '#2563EB',
+    success: '#059669',
+    warning: '#D97706',
+    danger: '#DC2626',
   },
   dark: {
-    text: '#ffffff',
-    background: '#000000',
+    text: '#FFFFFF',
+    textPrimary: '#F5F5F5',
+    background: '#0A0A0A',
     backgroundElement: '#212225',
     backgroundSelected: '#2E3135',
     textSecondary: '#B0B4BA',
+    surface: '#141414',
+    surfaceSecondary: '#1E1E1E',
+    border: '#2A2A2A',
+    accent: '#3C87F7',
+    success: '#2DD4BF',
+    warning: '#FBBF24',
+    danger: '#F87171',
   },
 } as const;
 
-export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
-
 export const Fonts = Platform.select({
   ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
     sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
     serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
     rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
     mono: 'ui-monospace',
   },
   default: {
